@@ -1,0 +1,16 @@
+@import 'tailwindcss';
+@custom-variant dark (&:is(.dark *));
+@theme inline {
+  --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono), ui-monospace, monospace;
+  --font-display: var(--font-display), var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  --color-bg: oklch(0.13 0.01 260); --color-bg-elevated: oklch(0.17 0.012 260); --color-panel: oklch(0.20 0.014 260); --color-line: oklch(0.30 0.012 260); --color-fg: oklch(0.96 0.005 260); --color-fg-muted: oklch(0.70 0.01 260); --color-fg-subtle: oklch(0.52 0.01 260); --color-accent: oklch(0.86 0.18 140); --color-accent-fg: oklch(0.15 0.03 140);
+}
+:root { color-scheme: dark; }
+html { background: var(--color-bg); scroll-behavior: smooth; }
+body { background: var(--color-bg); color: var(--color-fg); font-family: var(--font-sans); }
+h1, h2, h3 { font-family: var(--font-display); }
+:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; }
+@keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.animate-rise { animation: rise .4s ease-out both; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
